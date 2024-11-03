@@ -44,7 +44,6 @@ export default createVuetify({
     VCard: {
       rounded: "xl",
       variant: "flat",
-      color: "white",
       style: {
         fontSize: "10", // Set default text size for buttons to 9pt
       },

@@ -16,8 +16,49 @@
         >
           {{ button.name }}
         </v-btn>
+
+        <v-btn @click="dialogBox = true" class="mx-3"> Subjects </v-btn>
       </div>
     </div>
+    <v-dialog v-model="dialogBox" width="500px">
+      <v-card>
+        <div class="pa-6">
+          <h3>Subjects</h3>
+          <br />
+          <v-row class="d-flex">
+            <v-col cols="8">
+              <v-text-field
+                v-model="addSubject"
+                density="default"
+                label="Subject Name"
+              ></v-text-field>
+            </v-col>
+            <v-col>
+              <v-btn
+                class="mt-3"
+                append-icon="mdi mdi-check"
+                color="green"
+                variant="outlined"
+                >ADD</v-btn
+              >
+            </v-col>
+            <!-- remvoe -->
+            <v-col cols="8">
+              <v-select v-model="addSubject" variant="outlined"></v-select>
+            </v-col>
+            <v-col>
+              <v-btn
+                class="mt-3"
+                append-icon="mdi mdi-close"
+                color="red"
+                variant="outlined"
+                >Remove</v-btn
+              >
+            </v-col>
+          </v-row>
+        </div>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -25,6 +66,8 @@
 export default {
   data() {
     return {
+      addSubject: "",
+      dialogBox: false,
       is_Ready: true,
       buttons: [
         {
